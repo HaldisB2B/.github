@@ -1,0 +1,72 @@
+name: General Issue
+description: Create an issue for questions, discussions, or general topics
+title: '[GENERAL] '
+labels: ['question', 'needs-review']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for creating a general issue! This is for questions, discussions, or topics that don't fit our other templates.
+        
+  - type: dropdown
+    id: category
+    attributes:
+      label: 🎯 Category
+      description: Please select the category that best fits your issue
+      options:
+        - Question
+        - Documentation
+        - Discussion
+        - Support
+        - Other
+    validations:
+      required: true
+      
+  - type: textarea
+    id: issue-description
+    attributes:
+      label: 📝 Issue Description
+      description: A clear and concise description of your issue, question, or topic for discussion.
+      placeholder: Describe your issue...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: details
+    attributes:
+      label: 🔍 Details
+      description: Provide any additional details, context, or information that would be helpful.
+      placeholder: Any additional context...
+    validations:
+      required: false
+      
+  - type: textarea
+    id: related-resources
+    attributes:
+      label: 🔗 Related Resources
+      description: Link any related documentation, issues, or external resources.
+      placeholder: Links to relevant resources...
+    validations:
+      required: false
+      
+  - type: textarea
+    id: expected-outcome
+    attributes:
+      label: 📋 Expected Outcome
+      description: What would you like to achieve or what kind of response are you looking for?
+      placeholder: I would like to...
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: ✅ Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched for existing issues
+          required: true
+        - label: I have provided sufficient detail
+          required: true
+        - label: I have selected the appropriate category
+          required: true

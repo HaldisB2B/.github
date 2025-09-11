@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🌐 HaldisB2B Website
+    url: https://haldisb2b.com
+    about: Visit our main website for general information
+  - name: 📧 Email Support
+    url: mailto:hello@haldisb2b.com
+    about: Contact us directly for support or business inquiries
+  - name: 💼 LinkedIn
+    url: https://linkedin.com/company/haldisb2b
+    about: Connect with us on LinkedIn for updates and news

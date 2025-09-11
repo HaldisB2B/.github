@@ -1,0 +1,7 @@
+{
+  "name": "Python CI/CD",
+  "description": "Continuous Integration and Deployment workflow for Python projects",
+  "iconName": "python",
+  "categories": ["Python", "CI", "CD"],
+  "filePatterns": ["requirements.txt", "setup.py", "pyproject.toml"]
+}

@@ -1,0 +1,110 @@
+name: Feature Request
+description: Suggest an idea for this project
+title: '[FEATURE] '
+labels: ['enhancement', 'needs-review']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! Please provide as much detail as possible.
+        
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: 🚀 Feature Description
+      description: A clear and concise description of what you want to happen.
+      placeholder: Describe the feature you'd like to see...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: motivation
+    attributes:
+      label: 💡 Motivation
+      description: Is your feature request related to a problem? Please describe.
+      placeholder: I'm always frustrated when...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: 📋 Proposed Solution
+      description: Describe the solution you'd like to see implemented.
+      placeholder: I would like to see...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: alternative-solutions
+    attributes:
+      label: 🔄 Alternative Solutions
+      description: Describe any alternative solutions or features you've considered.
+      placeholder: Alternatively, we could...
+    validations:
+      required: false
+      
+  - type: textarea
+    id: use-cases
+    attributes:
+      label: 📊 Use Cases
+      description: Describe specific use cases for this feature
+      placeholder: |
+        - Use case 1: ...
+        - Use case 2: ...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: 🎯 Acceptance Criteria
+      description: Define what "done" looks like for this feature
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+    validations:
+      required: false
+      
+  - type: textarea
+    id: mockups
+    attributes:
+      label: 📸 Mockups/Designs
+      description: If applicable, add mockups, wireframes, or design ideas
+      placeholder: Drag and drop images here...
+    validations:
+      required: false
+      
+  - type: textarea
+    id: related-issues
+    attributes:
+      label: 🔗 Related Issues
+      description: Link any related issues or discussions
+      placeholder: Related to #123, #456...
+    validations:
+      required: false
+      
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: 📝 Additional Context
+      description: Add any other context about the feature request here
+      placeholder: Any additional information...
+    validations:
+      required: false
+      
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: ✅ Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched for existing feature requests
+          required: true
+        - label: This feature would benefit multiple users
+          required: true
+        - label: I have provided clear use cases
+          required: true
+        - label: I have considered alternative solutions
+          required: true
