@@ -1,67 +1,177 @@
+# HaldisB2B Repository Ownership Validation Workflow Template
+#
+# PURPOSE: Organizational Governance and Mistake Prevention
+# This workflow template prevents repository ownership mistakes that can cause:
+# - Confusion between personal and business projects
+# - Incorrect organizational structure
+# - Security and compliance issues
+# - Wasted time on repository transfers
+#
+# PHILOSOPHY: Prevention Over Correction
+# - Catch organizational mistakes immediately
+# - Enforce clear ownership boundaries
+# - Provide actionable guidance for corrections
+# - Maintain organizational clarity
+#
+# USAGE:
+# Copy this file to any HaldisB2B repository as:
+# .github/workflows/ownership-validation.yml
+#
+# TRIGGERS:
+# - Push to main branches (prevent bad merges)
+# - Pull requests (catch issues before merge)
+#
+# BASED ON REAL INCIDENT:
+# This workflow was created after the haldisb2b-nextgen-cicd repository
+# was mistakenly created in personal account instead of HaldisB2B organization.
+#
+# @author HaldisB2B Team
+# @version 1.0.0
+# @since 2025-09-13
+
 name: Repository Ownership Validation
 
+# TRIGGER CONFIGURATION
+# Run on any code changes to main branches to catch ownership issues early
 on:
   push:
+    # Support both 'main' and 'master' branch naming conventions
     branches: [ main, master ]
   pull_request:
+    # Validate ownership before merging changes
     branches: [ main, master ]
 
 jobs:
+  # JOB: validate-ownership
+  # Performs comprehensive organizational ownership validation
+  # This job ensures repository follows HaldisB2B organizational standards
   validate-ownership:
     runs-on: ubuntu-latest
     name: Validate Repository Organization
     
     steps:
+    # STEP 1: CRITICAL OWNERSHIP VALIDATION
+    # This is the most important check - ensures repository is in correct organization
+    # FAILURE HERE = IMMEDIATE ACTION REQUIRED
     - name: Validate Repository Owner
       run: |
+        # Clear messaging for organizational validation
         echo "🔍 Validating repository ownership..."
-        echo "Repository: $GITHUB_REPOSITORY"
-        echo "Owner: ${{ github.repository_owner }}"
+        echo "Repository: $GITHUB_REPOSITORY"           # e.g., HaldisB2B/nextgen-cicd
+        echo "Owner: ${{ github.repository_owner }}"    # Should be 'HaldisB2B'
         
-        # Ensure this is in the correct organization
+        # CRITICAL CHECK: Ensure repository is in HaldisB2B organization
+        # This check prevents the exact mistake that happened with nextgen-cicd
         if [[ "${{ github.repository_owner }}" != "HaldisB2B" ]]; then
+          # CRITICAL ERROR: Repository in wrong organization
           echo "❌ ERROR: HaldisB2B project in wrong organization!"
           echo "Expected: HaldisB2B/<repo-name>"
           echo "Actual: $GITHUB_REPOSITORY"
           echo ""
+          
+          # Provide immediate actionable guidance
           echo "🚨 IMMEDIATE ACTION REQUIRED:"
           echo "1. This repository should be in HaldisB2B organization"
           echo "2. Personal projects belong in individual accounts"
           echo "3. See: https://github.com/HaldisB2B/.github/blob/main/ORGANIZATION_GUIDELINES.md"
+          
+          # FAIL THE BUILD - This is a critical organizational error
+          # Prevents further development until ownership is corrected
           exit 1
         fi
         
+        # SUCCESS: Repository is in correct organization
         echo "✅ Repository ownership validated: $GITHUB_REPOSITORY"
         
+    # STEP 2: CONTENT CONTEXT VALIDATION
+    # Verify repository content has appropriate business context
+    # This catches cases where business projects have personal-style content
     - name: Check for Personal Content
       run: |
         echo "🔍 Checking for personal vs business content..."
         
-        # Check README for business context
+        # CHECK 1: README.md business context
+        # Business repositories should mention HaldisB2B in their README
         if [ -f README.md ]; then
-          if grep -q "HaldisB2B\|business\|company\|organization" README.md; then
+          # Look for business-related keywords in README
+          # This helps ensure project documentation reflects business context
+          if grep -q "HaldisB2B\\|business\\|company\\|organization" README.md; then
             echo "✅ Business context found in README"
           else
+            # WARNING: README lacks business context
+            # This doesn't fail the build but suggests improvement
             echo "⚠️  WARNING: No clear business context in README"
             echo "Consider adding HaldisB2B context to documentation"
           fi
         fi
         
-        # Check package.json for correct scope
+        # CHECK 2: package.json scope validation
+        # Node.js projects should use @haldisb2b scope for proper organization
         if [ -f package.json ]; then
+          # Check for correct organizational npm scope
+          # This ensures published packages are clearly organizational
           if grep -q '"name".*"@haldisb2b/' package.json; then
             echo "✅ Correct package scope: @haldisb2b"
           else
+            # WARNING: Package doesn't use organizational scope
+            # This doesn't fail but suggests organizational best practice
             echo "⚠️  WARNING: Package should use @haldisb2b scope"
           fi
         fi
         
+    # STEP 3: ORGANIZATIONAL COMPLIANCE SUMMARY
+    # Provide comprehensive status report and guidance references
     - name: Organization Guidelines Check
       run: |
+        # Organizational Compliance Summary Header
         echo "📋 Repository Organization Guidelines"
         echo "=================================="
+        
+        # Status confirmations
         echo "✅ Repository is in HaldisB2B organization"
         echo "✅ Content follows business context"
         echo "✅ Ownership validation passed"
         echo ""
+        
+        # Reference to detailed organizational guidelines
         echo "📖 Guidelines: https://github.com/HaldisB2B/.github/blob/main/ORGANIZATION_GUIDELINES.md"
+        
+        # FUTURE ENHANCEMENTS:
+        # This step could be enhanced to:
+        # - Generate compliance reports
+        # - Update organizational dashboards  
+        # - Send notifications for warnings
+        # - Create tickets for non-compliant repositories
+
+# WORKFLOW CHARACTERISTICS:
+# - Fast execution (< 1 minute)
+# - Zero tolerance for ownership mistakes (hard failure)
+# - Educational (provides clear guidance)
+# - Template-based (easy to deploy across repositories)
+#
+# ERROR HANDLING:
+# ✅ Wrong organization = CRITICAL FAILURE (exit 1)
+# ⚠️  Missing business context = WARNING (continue)
+# ⚠️  Wrong package scope = WARNING (continue)
+# ✅ All checks pass = SUCCESS (continue)
+#
+# PREVENTION STRATEGY:
+# This workflow implements a "shift-left" approach to organizational governance:
+# - Catch mistakes at development time, not after deployment
+# - Provide immediate feedback to developers
+# - Enforce organizational standards automatically
+# - Reduce time spent on repository transfers and corrections
+#
+# INTEGRATION GUIDE:
+# To use this template in a new HaldisB2B repository:
+# 1. Copy this file to .github/workflows/ownership-validation.yml
+# 2. Commit and push to trigger initial validation
+# 3. Fix any warnings or errors identified
+# 4. All future changes will be automatically validated
+#
+# MAINTENANCE:
+# This workflow should be updated when:
+# - Organizational structure changes
+# - New validation rules are needed
+# - Additional file types need checking
+# - Integration with other governance systems
