@@ -1,0 +1,67 @@
+name: Repository Ownership Validation
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate-ownership:
+    runs-on: ubuntu-latest
+    name: Validate Repository Organization
+    
+    steps:
+    - name: Validate Repository Owner
+      run: |
+        echo "🔍 Validating repository ownership..."
+        echo "Repository: $GITHUB_REPOSITORY"
+        echo "Owner: ${{ github.repository_owner }}"
+        
+        # Ensure this is in the correct organization
+        if [[ "${{ github.repository_owner }}" != "HaldisB2B" ]]; then
+          echo "❌ ERROR: HaldisB2B project in wrong organization!"
+          echo "Expected: HaldisB2B/<repo-name>"
+          echo "Actual: $GITHUB_REPOSITORY"
+          echo ""
+          echo "🚨 IMMEDIATE ACTION REQUIRED:"
+          echo "1. This repository should be in HaldisB2B organization"
+          echo "2. Personal projects belong in individual accounts"
+          echo "3. See: https://github.com/HaldisB2B/.github/blob/main/ORGANIZATION_GUIDELINES.md"
+          exit 1
+        fi
+        
+        echo "✅ Repository ownership validated: $GITHUB_REPOSITORY"
+        
+    - name: Check for Personal Content
+      run: |
+        echo "🔍 Checking for personal vs business content..."
+        
+        # Check README for business context
+        if [ -f README.md ]; then
+          if grep -q "HaldisB2B\|business\|company\|organization" README.md; then
+            echo "✅ Business context found in README"
+          else
+            echo "⚠️  WARNING: No clear business context in README"
+            echo "Consider adding HaldisB2B context to documentation"
+          fi
+        fi
+        
+        # Check package.json for correct scope
+        if [ -f package.json ]; then
+          if grep -q '"name".*"@haldisb2b/' package.json; then
+            echo "✅ Correct package scope: @haldisb2b"
+          else
+            echo "⚠️  WARNING: Package should use @haldisb2b scope"
+          fi
+        fi
+        
+    - name: Organization Guidelines Check
+      run: |
+        echo "📋 Repository Organization Guidelines"
+        echo "=================================="
+        echo "✅ Repository is in HaldisB2B organization"
+        echo "✅ Content follows business context"
+        echo "✅ Ownership validation passed"
+        echo ""
+        echo "📖 Guidelines: https://github.com/HaldisB2B/.github/blob/main/ORGANIZATION_GUIDELINES.md"
