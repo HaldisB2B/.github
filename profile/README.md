@@ -1,71 +1,31 @@
 # HaldisB2B Organization
-## AI-Assisted Development Excellence
 
-> Building the future of software development through intelligent AI-human collaboration.
+## 🏢 Company Repositories Only
 
----
+**This organization contains HaldisB2B business projects exclusively.**
 
-## Our Philosophy
+### Repository Ownership Rules
 
-**AI changes how fast we can code, not how well we must code.**
+- ✅ **HaldisB2B projects**: CI/CD systems, internal tools, client work
+- ❌ **Personal projects**: Belong in individual accounts (e.g., `Shamdon`)
 
-We believe in:
-- **Brutal Honesty** - No sugar-coating, transparent AI decisions
-- **Spec-Driven Development** - Write the what and why before the how
-- **Types → Tests → Architecture** - This order matters, this order is law
-- **Local-First** - Privacy and control by default, cloud by choice
+### Quick Reference
 
----
+| Repository Type | Correct Location | Examples |
+|----------------|------------------|----------|
+| Company CI/CD | `HaldisB2B/nextgen-cicd` | Infrastructure, deployments |
+| Company Tools | `HaldisB2B/prompt-management-system` | Internal utilities |
+| Personal Projects | `Shamdon/personal-tool` | Learning, experiments |
 
-## Technology Stack
+### Before Creating Repositories
 
-**Core Technologies:**
-- TypeScript 5+ (strict mode)
-- React 18+ with Vite
-- Tailwind CSS 3+
-- PNPM workspaces
+**Ask yourself:**
+1. Is this a company project? → `HaldisB2B`
+2. Will the team maintain it? → `HaldisB2B` 
+3. Is it business-critical? → `HaldisB2B`
 
-**Specialized Tools:**
-- **Text Editing:** Lexical (Meta)
-- **State Management:** Zustand + XState  
-- **Backend:** Supabase
-- **Testing:** Vitest + Playwright
+**See:** [ORGANIZATION_GUIDELINES.md](ORGANIZATION_GUIDELINES.md) for detailed rules.
 
 ---
 
-## Projects
-
-🤖 **Abaton** - Next-generation vector database (evolved Weaviate)
-📝 **Prompt Management** - AI-powered prompt organization with semantic clustering  
-🧚‍♀️ **TinkerBell** - Virtual fairy companion with emotional AI
-🌐 **MCP Servers** - Model Context Protocol implementations
-📓 **Markdown Tools** - Advanced text editing and note-taking applications
-
----
-
-## Development Standards
-
-✅ **Every repository includes:**
-- AGENTS.md with development instructions
-- 90%+ test coverage
-- AI transparency logging
-- Security scanning pipeline
-- Feature flag architecture
-
-✅ **Quality gates:**
-- Pre-commit hooks for security and formatting
-- Automated testing and type checking
-- Human review for architecture decisions
-- Production monitoring and observability
-
----
-
-## Join Us
-
-We're pushing the boundaries of what's possible when humans and AI work together effectively. Every project demonstrates that AI can accelerate development while maintaining—and even improving—code quality.
-
-**The goal isn't to use AI everywhere—it's to use AI where it multiplies human capability without dividing code quality.**
-
----
-
-*In the race between AI capabilities and engineering wisdom, we choose to run faster together.*
+*Proper organization prevents confusion and ensures clear ownership.*
