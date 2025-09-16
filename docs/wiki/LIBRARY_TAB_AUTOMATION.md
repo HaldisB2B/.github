@@ -17,6 +17,7 @@ The Library tab serves as the **unified access point** for all Haldis organizati
 - **Real-Time Sync**: Automatic updates when any repository content changes
 - **Intelligent Organization**: Automated categorization and hierarchy
 - **Cross-Repository Integration**: Seamless navigation between related content
+- **Admin Dashboard Wiki Page**: Integrated wiki management interface with analytics
 
 ---
 
@@ -242,6 +243,114 @@ Status Tags:
   - Up to Date, Needs Review
   - Recently Updated, Stale Content
   - Comprehensive, Incomplete
+```
+
+---
+
+## 🎛️ **Admin Dashboard Wiki Page Integration**
+
+### **Wiki Management Interface**
+```yaml
+Primary Dashboard Components:
+
+1. Wiki Overview Panel:
+   - Total pages count across all repositories
+   - Content health score (completeness, freshness, accuracy)
+   - System status indicators (sync, search, automation)
+   - Storage utilization and growth trends
+
+2. Latest Content Feed:
+   - Real-time updates from last 24 hours
+   - Author attribution and change magnitude
+   - Preview snippets and direct navigation links
+   - Change type classification (new, update, major revision)
+
+3. Most Viewed Analytics:
+   - Top 20 pages by access frequency (last 30 days)
+   - View trend indicators (↑ rising, ↓ declining, → stable)
+   - Team member access patterns and preferences
+   - Popular search queries and discovery paths
+
+4. Most Important Pages (Algorithmic Ranking):
+   - Organizational priority scoring system
+   - Cross-reference density analysis
+   - Critical path documentation identification
+   - Update frequency and recency weighting
+   - Developer dependency mapping
+```
+
+### **🔥 TODO: Enhanced Wiki Dashboard Features**
+
+#### **High Priority Implementation Items:**
+```yaml
+Latest Content Display System:
+  ✅ Real-time content feed implementation
+  ⏳ Smart change detection (major vs minor updates)
+  ⏳ Author notification and attribution system
+  ⏳ Content preview generation with highlighting
+  ⏳ Quick action buttons (edit, share, bookmark)
+
+Most Viewed Analytics Engine:
+  ⏳ User access tracking implementation
+  ⏳ View count aggregation and trending analysis
+  ⏳ Popular content recommendation algorithm
+  ⏳ Search query analytics and optimization
+  ⏳ Team collaboration pattern recognition
+
+Most Important Pages Algorithm:
+  ⏳ Multi-factor importance scoring system:
+    - Cross-reference frequency weighting (40%)
+    - Update recency and frequency (25%)
+    - Team access patterns (20%)
+    - Organizational priority tags (15%)
+  ⏳ Critical documentation identification
+  ⏳ Knowledge gap detection and alerts
+  ⏳ Dependency impact analysis
+  ⏳ Strategic content prioritization
+```
+
+#### **Advanced Dashboard Features (Future Phase):**
+```yaml
+Semantic Content Analysis:
+  ⏳ Content similarity clustering
+  ⏳ Duplicate detection and consolidation suggestions
+  ⏳ Knowledge graph visualization
+  ⏳ Topic modeling and trend analysis
+
+Content Quality Monitoring:
+  ⏳ Completeness scoring (metadata, links, structure)
+  ⏳ Freshness indicators and staleness alerts
+  ⏳ Accuracy validation through cross-references
+  ⏳ Accessibility compliance checking
+
+Integration Features:
+  ⏳ Direct editing interface within dashboard
+  ⏳ Collaborative annotation and commenting
+  ⏳ Export capabilities (PDF, markdown, web)
+  ⏳ Integration with external tools (Slack, Teams)
+```
+
+### **Special File Type Handling**
+```yaml
+.log File Processing:
+  - Automatic web page generation with enhanced formatting
+  - Real-time updates and append detection
+  - Timeline visualization for event logs
+  - Integration with monitoring and alerting systems
+  - Searchable content with timestamp indexing
+
+.roadmap File Processing:
+  - Interactive timeline and milestone visualization
+  - Progress tracking with completion percentages
+  - Dependency mapping and critical path analysis
+  - Automated status updates based on git commits
+  - Integration with project management dashboards
+
+File Type Equivalence:
+  - .md, .log, .roadmap all processed identically by automation
+  - Same GitHub Actions workflow handles all types
+  - Consistent cross-linking and reference capabilities
+  - Unified search index across all content types
 ```
 
 ---
