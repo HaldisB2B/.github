@@ -14,6 +14,19 @@ Update Frequency: Quarterly or when significant changes occur
 
 ---
 
+## 🚨 **ARCHITECTURAL FOUNDATION REQUIRED**
+
+**📋 MANDATORY BEFORE USING ANY TOOLS:**
+- ✅ **READ**: `SOFTWARE-ARCHITECTURE-LAYERS.md` for architectural principles
+- ✅ **UNDERSTAND**: Four-layer architecture (Presentation, Application, Data, Infrastructure)
+- ✅ **VALIDATE**: All tool choices support proper layer separation
+- ✅ **ENSURE**: Tools enable clean architectural boundaries
+
+**🎯 Tool Selection Rule:**
+Every tool must support the four-layer architecture and not encourage mixing of concerns across layers. Tools that promote architectural violations are NOT approved for HaldisB2B projects.
+
+---
+
 ## 🔄 **AGENT UPDATE INSTRUCTIONS** 
 
 **📋 For AI Agents Reading This Document:**
@@ -24,6 +37,7 @@ Update Frequency: Quarterly or when significant changes occur
 3. **Update Suggestions**: Add suggestions to the [Tool Suggestions](#-tool-suggestions-agent-contributions) section
 4. **Flag Outdated Items**: Mark any outdated information you discover
 5. **Performance Validation**: If you have experience with tools not listed, evaluate them against our criteria
+6. **🆕 ARCHITECTURAL VALIDATION**: Ensure all tool suggestions respect layer boundaries
 
 **RESEARCH VALIDATION CHECKLIST:**
 - [ ] Check tool release dates and current versions
@@ -31,6 +45,7 @@ Update Frequency: Quarterly or when significant changes occur
 - [ ] Validate performance claims with recent benchmarks
 - [ ] Confirm compatibility with our existing stack
 - [ ] Assess security and enterprise readiness
+- [ ] **🆕 VALIDATE**: Tool supports architectural layer separation
 
 ---
 
@@ -43,10 +58,11 @@ Update Frequency: Quarterly or when significant changes occur
 - Bun gaining significant adoption
 - AI coding tools with model switching capabilities
 - Enhanced CI/CD platform features
+- **🆕 Architectural compliance requirements** added
 
 ---
 
-## 🎯 **Tool Categories & Recommendations**
+## 🎯 **Tool Categories & Recommendations (Architecture-Aligned)**
 
 ### **1. 🤖 AI Development Tools (Critical Priority)**
 
@@ -63,6 +79,8 @@ Key Features:
   - 12,000 completions/month on free tier
 Integration: Native VS Code, Visual Studio, JetBrains
 Best For: Team collaboration, autocomplete, documentation
+Architectural Layer: All layers (with proper context)
+Architecture Support: ✅ Respects layer boundaries when properly prompted
 ```
 
 **🥈 Secondary Option: Claude Code** *(For Complex Tasks)*
@@ -75,6 +93,8 @@ Key Features:
   - Autonomous development capabilities
   - Superior algorithm design and code rewriting
 Best For: Architectural work, complex refactoring, system design
+Architectural Layer: Primarily Application and Infrastructure layers
+Architecture Support: ✅ Excellent for architectural planning and layer design
 ```
 
 **🥉 Alternative: Cursor IDE** *(For Teams)*
@@ -87,9 +107,11 @@ Key Features:
   - Built-in terminal commands and file handling
   - Team collaboration features
 Best For: Teams requiring integrated IDE experience
+Architectural Layer: Primarily Presentation and Application layers
+Architecture Support: ✅ Good layer awareness with proper configuration
 ```
 
-### **2. 📝 IDEs & Code Editors**
+### **2. 📝 IDEs & Code Editors (Presentation Layer Tools)**
 
 #### **Primary IDEs (Choose Based on Stack)**
 
@@ -100,6 +122,8 @@ Cost: Free
 Extensions Ecosystem: 50,000+ extensions
 AI Integration: Native Copilot, Cursor compatibility
 Best For: Web development, TypeScript, React projects
+Architectural Layer: Presentation Layer (UI development)
+Architecture Support: ✅ Excellent with proper workspace organization
 Required Extensions:
   - ES Lint + Prettier
   - TypeScript
@@ -113,6 +137,8 @@ Status: ✅ Approved - .NET Standard
 Cost: $139/year
 Performance: Superior for large .NET solutions
 Best For: Enterprise .NET development, complex solutions
+Architectural Layer: Application Layer (.NET services)
+Architecture Support: ✅ Strong architectural tooling
 ```
 
 **Cursor IDE** *(AI-Native Option)*
@@ -121,6 +147,8 @@ Status: 🧪 Testing Phase
 Cost: $20/month Pro
 Features: AI-first design, agent mode
 Best For: AI-heavy development workflows
+Architectural Layer: All layers with AI assistance
+Architecture Support: 🧪 Under evaluation
 ```
 
 ### **3. 📦 Package Management (Updated Dec 2024)**
@@ -135,6 +163,8 @@ Disk Usage: Shared dependency model
 Monorepo Support: Excellent built-in support
 Best For: Large-scale projects, monorepos, team environments
 Install: npm install -g pnpm
+Architectural Layer: Infrastructure Layer (dependency management)
+Architecture Support: ✅ Excellent monorepo support for layer separation
 ```
 
 **🥈 Bun** *(Performance Leader, Limited Platform)*
@@ -145,6 +175,8 @@ Limitations: No stable Windows support yet
 Features: All-in-one runtime, bundler, test runner
 Best For: macOS/Linux development, performance-critical projects
 Note: Monitor for Windows stability before full adoption
+Architectural Layer: Infrastructure Layer (runtime and tooling)
+Architecture Support: 🧪 Under evaluation for architectural compatibility
 ```
 
 **🥉 NPM** *(Fallback Standard)*
@@ -153,16 +185,11 @@ Status: ✅ Approved Fallback
 Compatibility: Universal Node.js support
 Best For: Maximum compatibility, simple projects
 Performance: Slower than alternatives but universally supported
+Architectural Layer: Infrastructure Layer (basic dependency management)
+Architecture Support: ✅ Universal compatibility
 ```
 
-**Yarn** *(Legacy Support)*
-```yaml
-Status: ⚠️ Legacy Support Only
-Note: Yarn 2+ breaking changes limit adoption
-Use Case: Existing projects requiring Yarn compatibility
-```
-
-### **4. 🚀 CI/CD & DevOps Platforms**
+### **4. 🚀 CI/CD & DevOps Platforms (Infrastructure Layer)**
 
 #### **CI/CD Platforms (Tier 1)**
 
@@ -177,6 +204,8 @@ Features:
   - Built-in security scanning
 Cost: Free for public repos, generous free tier for private
 Best For: GitHub-hosted projects, standard CI/CD workflows
+Architectural Layer: Infrastructure Layer (deployment and automation)
+Architecture Support: ✅ Supports layer-specific build and deployment
 ```
 
 **GitLab CI/CD** *(Full DevOps Platform)*
@@ -185,6 +214,8 @@ Status: ✅ Approved Alternative
 Features: Full DevOps lifecycle platform
 Strengths: Integrated repo to deploy pipeline
 Best For: Organizations requiring complete DevOps platform
+Architectural Layer: Infrastructure Layer (complete DevOps)
+Architecture Support: ✅ Strong architectural separation support
 ```
 
 **Jenkins** *(Enterprise Self-Hosted)*
@@ -194,9 +225,11 @@ Type: Self-hosted automation server
 Plugins: 1,000+ available plugins
 Best For: Complex enterprise environments, custom workflows
 Maintenance: Requires dedicated DevOps team
+Architectural Layer: Infrastructure Layer (enterprise automation)
+Architecture Support: ✅ Highly configurable for layer-specific workflows
 ```
 
-#### **Container & Orchestration**
+#### **Container & Orchestration (Infrastructure Layer)**
 
 **Docker** *(Containerization Standard)*
 ```yaml
@@ -204,6 +237,8 @@ Status: ✅ Essential Tool
 Purpose: Application containerization
 Integration: Universal platform support
 Best For: Consistent development/production environments
+Architectural Layer: Infrastructure Layer (application packaging)
+Architecture Support: ✅ Excellent for layer isolation and deployment
 ```
 
 **Kubernetes** *(Orchestration Leader)*
@@ -213,9 +248,11 @@ Purpose: Container orchestration at scale
 Learning Curve: Steep but essential for scale
 Best For: Microservices, cloud-native applications
 Tools: kubectl, Helm, ArgoCD for GitOps
+Architectural Layer: Infrastructure Layer (container orchestration)
+Architecture Support: ✅ Designed for microservices architectural patterns
 ```
 
-### **5. 🏗️ Infrastructure as Code**
+### **5. 🏗️ Infrastructure as Code (Infrastructure Layer)**
 
 **Terraform** *(IaC Leader)*
 ```yaml
@@ -224,6 +261,8 @@ Approach: Declarative infrastructure configuration
 Cloud Support: AWS, Azure, GCP, and 3,000+ providers
 Best For: Multi-cloud infrastructure management
 Alternative: AWS CloudFormation (AWS-only)
+Architectural Layer: Infrastructure Layer (infrastructure definition)
+Architecture Support: ✅ Supports infrastructure for all architectural layers
 ```
 
 **Ansible** *(Configuration Management)*
@@ -232,9 +271,11 @@ Status: ✅ Approved
 Purpose: Server configuration and automation
 Approach: Agentless automation
 Best For: Server setup, application deployment automation
+Architectural Layer: Infrastructure Layer (configuration automation)
+Architecture Support: ✅ Supports layer-specific configuration management
 ```
 
-### **6. 📊 Monitoring & Observability**
+### **6. 📊 Monitoring & Observability (Infrastructure Layer)**
 
 **Prometheus + Grafana** *(Monitoring Stack)*
 ```yaml
@@ -243,6 +284,8 @@ Prometheus: Time-series metrics collection
 Grafana: Visualization and dashboarding
 Best For: Cloud-native applications, Kubernetes environments
 Cost: Open source
+Architectural Layer: Infrastructure Layer (system monitoring)
+Architecture Support: ✅ Can monitor all architectural layers independently
 ```
 
 **ELK Stack** *(Logging & Search)*
@@ -251,9 +294,11 @@ Components: Elasticsearch, Logstash, Kibana
 Status: ✅ Approved for Log Management
 Best For: Centralized logging, log analysis
 Alternative: EFK (Fluentd instead of Logstash)
+Architectural Layer: Infrastructure Layer (log aggregation)
+Architecture Support: ✅ Layer-aware logging and analysis
 ```
 
-### **7. 📋 Specification-Driven Development**
+### **7. 📋 Specification-Driven Development (All Layers)**
 
 **🆕 GitHub Spec Kit** *(Revolutionary Addition)*
 ```yaml
@@ -264,6 +309,8 @@ Integration: Claude Code, GitHub Copilot, Gemini CLI
 Cost: Open source
 Installation: uvx --from git+https://github.com/github/spec-kit.git specify init
 Best For: AI-assisted development, complex feature development
+Architectural Layer: All layers (specification spans architecture)
+Architecture Support: ✅ EXCELLENT - Designed for specification-driven architecture
 ```
 
 **OpenAPI/Swagger** *(API Specification)*
@@ -272,50 +319,61 @@ Status: ✅ API Standard
 Purpose: API design and documentation
 Tools: Swagger Editor, Postman, Insomnia
 Best For: API-first development, team collaboration
+Architectural Layer: Application Layer (API contracts)
+Architecture Support: ✅ Defines clear boundaries between layers
 ```
 
-### **8. 🔧 Development Utilities**
+### **8. 🔧 Development Utilities (Layer-Specific)**
 
-**Git + GitHub CLI**
+**Git + GitHub CLI** *(Infrastructure Layer)*
 ```yaml
 Version Control: Git (essential)
 GitHub Integration: gh CLI for repository management
 Authentication: Git Credential Manager recommended
 Best Practices: Conventional commits, semantic versioning
+Architectural Layer: Infrastructure Layer (version control)
+Architecture Support: ✅ Universal support for all layers
 ```
 
-**Database Tools**
+**Database Tools** *(Data Layer)*
 ```yaml
 PostgreSQL: Primary database recommendation
 Tools: pgAdmin, DBeaver, TablePlus
 ORMs: Prisma (TypeScript), Drizzle (lightweight alternative)
+Architectural Layer: Data Layer (database management)
+Architecture Support: ✅ Designed for data layer isolation
 ```
 
-**API Testing**
+**API Testing** *(Application Layer)*
 ```yaml
 Primary: Postman (team collaboration)
 Alternative: Insomnia (developer-focused)
 CLI: curl, HTTPie
 Automation: Newman (Postman CLI)
+Architectural Layer: Application Layer (API testing)
+Architecture Support: ✅ Tests Application Layer API contracts
 ```
 
 ---
 
-## 📈 **Tool Selection Criteria**
+## 📈 **Tool Selection Criteria (Architecture-First)**
 
 ### **Evaluation Framework**
-1. **Performance & Speed** - Benchmark against alternatives
-2. **Community Adoption** - Active development and support
-3. **Integration Capability** - Works with existing stack
-4. **Learning Curve** - Team adoption feasibility
-5. **Cost Effectiveness** - Value for investment
-6. **Security & Compliance** - Enterprise readiness
-7. **Future Viability** - Long-term sustainability
+1. **🆕 ARCHITECTURAL COMPATIBILITY** - Supports layer separation
+2. **Performance & Speed** - Benchmark against alternatives
+3. **Community Adoption** - Active development and support
+4. **Integration Capability** - Works with existing stack
+5. **Learning Curve** - Team adoption feasibility
+6. **Cost Effectiveness** - Value for investment
+7. **Security & Compliance** - Enterprise readiness
+8. **Future Viability** - Long-term sustainability
 
-### **Decision Matrix Template**
+### **🆕 Architectural Decision Matrix Template**
 ```yaml
 Tool: [Name]
+Architectural Layer: [Presentation|Application|Data|Infrastructure|Cross-Layer]
 Score (1-10):
+  Architecture Compliance: ___
   Performance: ___
   Community: ___
   Integration: ___
@@ -323,8 +381,9 @@ Score (1-10):
   Cost: ___
   Security: ___
   Future: ___
-Total: ___/70
+Total: ___/80
 Status: ✅ Approved | 🧪 Testing | ❌ Rejected
+Architecture Support: [Excellent|Good|Limited|Poor]
 ```
 
 ---
@@ -333,10 +392,11 @@ Status: ✅ Approved | 🧪 Testing | ❌ Rejected
 
 > **AI Agents**: Add your tool discoveries and experiences here!
 
-### **Format for Suggestions**
+### **🆕 Updated Format for Suggestions**
 ```yaml
 Tool Name: [Name]
 Category: [Development/CI-CD/Monitoring/etc.]
+Architectural Layer: [Presentation|Application|Data|Infrastructure|Cross-Layer]
 Suggested By: [Agent Name]
 Date: [YYYY-MM-DD]
 Experience Level: [Extensive/Moderate/Limited]
@@ -344,6 +404,7 @@ Key Benefits:
   - [Benefit 1]
   - [Benefit 2]
 Performance Notes: [Your experience]
+Architectural Compliance: [How well it respects layer boundaries]
 Comparison: [How it compares to current tools]
 Recommendation: [Replace existing/Additional option/Evaluation needed]
 ```
@@ -356,6 +417,7 @@ Recommendation: [Replace existing/Additional option/Evaluation needed]
 ```yaml
 Tool Name: Biome
 Category: Code Formatting/Linting
+Architectural Layer: Infrastructure (Development Tools)
 Suggested By: [Agent Name]
 Date: 2024-12-13
 Experience Level: Moderate
@@ -364,6 +426,7 @@ Key Benefits:
   - 20x faster than ESLint
   - Native TypeScript support
 Performance Notes: Significantly faster linting and formatting
+Architectural Compliance: Excellent - pure development tool, no layer mixing
 Comparison: Could replace ESLint + Prettier combination
 Recommendation: Evaluation needed for team adoption
 ```
@@ -383,6 +446,11 @@ Recommendation: Evaluation needed for team adoption
 - **Biome**: ESLint + Prettier replacement
 - **Turborepo**: Monorepo build system optimization
 
+### **🆕 Architectural Alerts**
+- **Tools that encourage layer mixing**: Avoid frameworks that blur architectural boundaries
+- **All-in-one solutions**: Evaluate carefully for architectural compliance
+- **New AI tools**: Validate they understand and respect layer separation
+
 ### **Security Alerts**
 - **NPM Package Security**: Regular audit with `npm audit` 
 - **Docker Base Images**: Keep updated for security patches
@@ -390,46 +458,88 @@ Recommendation: Evaluation needed for team adoption
 
 ---
 
-## 🚀 **Implementation Roadmap**
+## 🚀 **Implementation Roadmap (Architecture-Aware)**
 
 ### **Phase 1: Core Tools (Immediate)**
 - [ ] Standardize on PNPM for package management
 - [ ] GitHub Copilot for all team members
 - [ ] GitHub Actions for CI/CD
 - [ ] Docker for containerization
+- [ ] **🆕 Establish architectural compliance validation**
 
 ### **Phase 2: Advanced Tools (Month 2)**
 - [ ] Implement GitHub Spec Kit for new features
 - [ ] Set up Prometheus/Grafana monitoring
 - [ ] Terraform for infrastructure management
 - [ ] API testing standardization
+- [ ] **🆕 Layer-specific tool optimization**
 
 ### **Phase 3: Optimization (Month 3)**
 - [ ] Evaluate Bun for performance gains
 - [ ] Advanced CI/CD pipeline optimization
 - [ ] Team training on specification-driven development
 - [ ] Tool performance analysis and refinement
+- [ ] **🆕 Architectural compliance monitoring and improvement**
 
 ---
 
-## 📚 **Training & Resources**
+## 🏗️ **Architectural Tool Organization**
+
+### **Presentation Layer Tools**
+```yaml
+Primary: VS Code, React DevTools, Browser DevTools
+Testing: Storybook, Chromatic, Percy
+Styling: Tailwind Play, Figma
+State: Redux DevTools, Zustand DevTools
+```
+
+### **Application Layer Tools**
+```yaml
+API Development: Postman, Insomnia, Thunder Client
+Testing: Jest, Vitest, Supertest
+Documentation: Swagger UI, Stoplight
+Debugging: Node.js Inspector, Winston logs
+```
+
+### **Data Layer Tools**
+```yaml
+Database: pgAdmin, DBeaver, TablePlus
+Migrations: Prisma Studio, Drizzle Studio
+Testing: pg-mem, testcontainers
+Monitoring: pgHero, pg_stat_statements
+```
+
+### **Infrastructure Layer Tools**
+```yaml
+Containers: Docker Desktop, Portainer
+Orchestration: kubectl, k9s, Lens
+IaC: Terraform Cloud, Atlantis
+Monitoring: Grafana, Prometheus, Jaeger
+```
+
+---
+
+## 📚 **Training & Resources (Architecture-Focused)**
 
 ### **Essential Learning Paths**
-1. **GitHub Spec Kit**: [Official Documentation](https://github.com/github/spec-kit)
-2. **PNPM**: [Migration Guide](https://pnpm.io/motivation)
-3. **GitHub Actions**: [Workflow Documentation](https://docs.github.com/en/actions)
-4. **Docker**: [Best Practices Guide](https://docs.docker.com/develop/dev-best-practices/)
+1. **Architectural Foundations**: `SOFTWARE-ARCHITECTURE-LAYERS.md`
+2. **GitHub Spec Kit**: [Official Documentation](https://github.com/github/spec-kit)
+3. **PNPM**: [Migration Guide](https://pnpm.io/motivation)
+4. **GitHub Actions**: [Workflow Documentation](https://docs.github.com/en/actions)
+5. **Docker**: [Best Practices Guide](https://docs.docker.com/develop/dev-best-practices/)
 
 ### **Team Onboarding Checklist**
+- [ ] **🆕 Read and understand SOFTWARE-ARCHITECTURE-LAYERS.md**
 - [ ] Install primary tools (VS Code, PNPM, Docker)
 - [ ] Configure GitHub Copilot
 - [ ] Access to monitoring dashboards
 - [ ] GitHub Spec Kit training session
 - [ ] CI/CD pipeline overview
+- [ ] **🆕 Architectural compliance training**
 
 ---
 
-## 🔍 **Tool Validation Commands**
+## 🔍 **Tool Validation Commands (Architecture-Aware)**
 
 ### **Quick Tool Status Check**
 ```bash
@@ -450,6 +560,10 @@ npm --version
 # AI tools status
 code --version  # VS Code
 # GitHub Copilot status in VS Code extensions
+
+# NEW: Architecture validation
+# Check if tools respect layer boundaries
+pnpm arch:validate  # If available
 ```
 
 ### **Performance Benchmarking**
@@ -462,11 +576,16 @@ time docker build .
 
 # CI/CD pipeline duration
 # Check in GitHub Actions tab
+
+# NEW: Layer-specific performance
+pnpm build:presentation  # UI build time
+pnpm test:application   # API test time
+pnpm migrate:data      # Database migration time
 ```
 
 ---
 
-## 🏆 **Success Metrics**
+## 🏆 **Success Metrics (Architecture-Aware)**
 
 ### **Tool Adoption KPIs**
 - **Setup Time**: New project from 0 to running < 15 minutes
@@ -474,6 +593,13 @@ time docker build .
 - **Developer Satisfaction**: Tool effectiveness survey scores
 - **Performance**: Build times, test execution speed
 - **Security**: Zero critical vulnerabilities in dependencies
+- **🆕 Architectural Compliance**: Layer boundary violations per project
+
+### **🆕 Architectural Health Metrics**
+- **Layer Separation Score**: Tool compliance with architectural boundaries
+- **Cross-Layer Dependencies**: Number of inappropriate tool dependencies
+- **Tool Architectural Debt**: Tools that encourage layer violations
+- **Layer Independence**: Ability to change tools in one layer without affecting others
 
 ### **Quarterly Review Process**
 1. **Performance Analysis**: Benchmark current vs. alternative tools
@@ -481,6 +607,7 @@ time docker build .
 3. **Team Feedback**: Developer experience and productivity assessment
 4. **Industry Trends**: Research emerging tools and practices
 5. **Cost Analysis**: Tool licensing and efficiency evaluation
+6. **🆕 Architectural Review**: Tool compliance with layer separation principles
 
 ---
 
@@ -490,12 +617,14 @@ time docker build .
 - **GitHub Issues**: Create issues in respective tool repositories
 - **Internal Documentation**: Update this document with discoveries
 - **Team Knowledge Sharing**: Weekly tool tips and tricks sessions
+- **🆕 Architectural Questions**: Reference SOFTWARE-ARCHITECTURE-LAYERS.md or create architecture review request
 
 ### **Update Process**
 1. **Quarterly Reviews**: Comprehensive tool evaluation
 2. **Security Updates**: Monthly dependency and tool updates
 3. **Agent Contributions**: Continuous suggestions and improvements
 4. **Emergency Updates**: Critical security or performance issues
+5. **🆕 Architectural Reviews**: Validation of tool compliance with layer principles
 
 ---
 
@@ -505,4 +634,4 @@ time docker build .
 
 ---
 
-*"The right tools don't make you a better developer, but they get out of your way so you can focus on solving real problems."*
+*"The right tools don't make you a better developer, but they get out of your way so you can focus on solving real problems while respecting architectural boundaries."*
