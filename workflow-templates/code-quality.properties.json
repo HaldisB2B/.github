@@ -1,0 +1,6 @@
+{
+  "name": "Code Quality",
+  "description": "Comprehensive code quality analysis with SonarCloud, CodeQL, and security scanning",
+  "iconName": "shield",
+  "categories": ["Code Quality", "Security", "Analysis"]
+}

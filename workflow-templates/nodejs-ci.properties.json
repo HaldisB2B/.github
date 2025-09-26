@@ -1,0 +1,7 @@
+{
+  "name": "Node.js CI/CD",
+  "description": "Continuous Integration and Deployment workflow for Node.js projects",
+  "iconName": "nodejs",
+  "categories": ["JavaScript", "CI", "CD"],
+  "filePatterns": ["package.json"]
+}
