@@ -1,0 +1,112 @@
+name: AI Agent Decision Proposal
+description: Propose a decision or action that requires coordination with other agents
+title: "[AGENT] Propose: [Brief description]"
+labels: ["agent-coordination", "decision-pending"]
+assignees: []
+body:
+  - type: input
+    id: agent-id
+    attributes:
+      label: Agent ID
+      description: Your agent identifier (e.g., claude-code-v1, gpt-4-dev, copilot-pr)
+      placeholder: claude-code-20250109
+    validations:
+      required: true
+
+  - type: dropdown
+    id: project
+    attributes:
+      label: Project
+      description: Which project does this decision affect?
+      options:
+        - abaton
+        - TinkerBell
+        - prompt-management-system
+        - Markdown-Notebook
+        - NJN
+        - MCP_web_scraper
+        - cross-project
+        - organizational-standards
+    validations:
+      required: true
+
+  - type: dropdown
+    id: action-type
+    attributes:
+      label: Action Type
+      description: What type of action are you proposing?
+      options:
+        - PROPOSE
+        - IMPLEMENT
+        - REVIEW
+        - CONFLICT
+        - QUERY
+    validations:
+      required: true
+
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: Confidence Level
+      description: How confident are you in this decision?
+      options:
+        - HIGH (90%+)
+        - MEDIUM (70-89%)
+        - LOW (<70%)
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Brief description of what you're working on
+      placeholder: Implementing vector similarity search for abaton database using pgvector extension
+    validations:
+      required: true
+
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decision/Recommendation
+      description: Specific action, decision, or recommendation
+      placeholder: Use pgvector with cosine similarity for semantic search, implement connection pooling via Supabase
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: What does this depend on from other agents or humans?
+      placeholder: |
+        - Requires approval from architecture agents
+        - Needs database schema review from gpt-4-architect
+
+  - type: textarea
+    id: conflicts
+    attributes:
+      label: Potential Conflicts
+      description: Any conflicts with existing decisions or other agents' work?
+      placeholder: |
+        - May conflict with existing Weaviate integration plans
+        - Resource usage implications need review
+
+  - type: textarea
+    id: success-criteria
+    attributes:
+      label: Success Criteria
+      description: How to measure if this decision/action was successful
+      placeholder: |
+        - Query performance <100ms for 1M vectors
+        - 95% accuracy on semantic similarity tests
+        - Passes security review
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Links to related issues, PRs, or previous decisions
+      placeholder: |
+        - Issue #123: Vector database architecture
+        - Previous decision: commit abc123 (Weaviate evaluation)

@@ -1,0 +1,107 @@
+name: AI Agent Status Update
+description: Provide status update on ongoing agent work
+title: "[STATUS] Update: [Brief description]"
+labels: ["agent-coordination", "status-update"]
+assignees: []
+body:
+  - type: input
+    id: agent-id
+    attributes:
+      label: Agent ID
+      description: Your agent identifier
+      placeholder: claude-code-20250109
+    validations:
+      required: true
+
+  - type: dropdown
+    id: project
+    attributes:
+      label: Project
+      description: Which project is this update for?
+      options:
+        - abaton
+        - TinkerBell
+        - prompt-management-system
+        - Markdown-Notebook
+        - NJN
+        - MCP_web_scraper
+        - cross-project
+        - organizational-standards
+    validations:
+      required: true
+
+  - type: textarea
+    id: completed-work
+    attributes:
+      label: Completed Work
+      description: What has been completed since last update?
+      placeholder: |
+        - Implemented pgvector integration
+        - Added connection pooling configuration
+        - Created similarity search API endpoints
+        - Updated documentation
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-work
+    attributes:
+      label: Current Work
+      description: What are you currently working on?
+      placeholder: |
+        - Performance optimization of vector queries
+        - Integration testing with existing authentication
+        - Error handling for edge cases
+
+  - type: textarea
+    id: blockers
+    attributes:
+      label: Blockers & Dependencies
+      description: What is blocking progress or what do you need from other agents?
+      placeholder: |
+        - Waiting for database schema approval from architecture team
+        - Need security review before production deployment
+        - Requires coordination with authentication service changes
+
+  - type: textarea
+    id: next-steps
+    attributes:
+      label: Next Steps
+      description: What will you work on next?
+      placeholder: |
+        - Complete performance benchmarking
+        - Submit PR for code review
+        - Update API documentation
+        - Coordinate with frontend team for integration
+
+  - type: dropdown
+    id: health-status
+    attributes:
+      label: Health Status
+      description: Overall health of your work
+      options:
+        - GREEN (on track, no issues)
+        - YELLOW (minor issues, manageable)
+        - RED (major blockers, needs attention)
+    validations:
+      required: true
+
+  - type: textarea
+    id: agent-coordination
+    attributes:
+      label: Agent Coordination Needs
+      description: Do you need coordination with other agents?
+      placeholder: |
+        - Need review from security agents before deployment
+        - Coordination with frontend agents for API integration
+        - Handoff to testing agents for E2E validation
+
+  - type: textarea
+    id: lessons-learned
+    attributes:
+      label: Lessons Learned
+      description: Any insights or patterns discovered that other agents should know?
+      placeholder: |
+        - pgvector performs better with specific index configurations
+        - Connection pooling settings need tuning for vector operations
+        - Error handling patterns for vector similarity edge cases

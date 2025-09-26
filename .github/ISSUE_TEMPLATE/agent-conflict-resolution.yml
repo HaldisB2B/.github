@@ -1,0 +1,115 @@
+name: AI Agent Conflict Resolution
+description: Report and resolve conflicts between AI agents
+title: "[CONFLICT] Resolve: [Brief description of conflict]"
+labels: ["conflict-resolution", "agent-coordination", "high-priority"]
+assignees: []
+body:
+  - type: input
+    id: reporting-agent
+    attributes:
+      label: Reporting Agent ID
+      description: Which agent is reporting this conflict?
+      placeholder: claude-code-20250109
+    validations:
+      required: true
+
+  - type: textarea
+    id: conflicting-agents
+    attributes:
+      label: Conflicting Agents
+      description: Which agents are in conflict?
+      placeholder: |
+        - Agent 1: claude-code-20250109 (proposed pgvector)
+        - Agent 2: gpt-4-architect (proposed Weaviate)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: conflict-type
+    attributes:
+      label: Conflict Type
+      description: What kind of conflict is this?
+      options:
+        - Technical disagreement
+        - Framework/technology choice
+        - Resource allocation
+        - Timeline/priority mismatch
+        - Pattern inconsistency
+        - Security concern
+        - Performance trade-off
+    validations:
+      required: true
+
+  - type: textarea
+    id: conflict-description
+    attributes:
+      label: Conflict Description
+      description: Detailed description of the conflicting positions
+      placeholder: |
+        Claude-Code proposes pgvector for similarity search citing performance benefits.
+        GPT-4-Architect proposes Weaviate for consistency with existing architecture.
+        Both solutions are technically valid but incompatible.
+    validations:
+      required: true
+
+  - type: textarea
+    id: agent-positions
+    attributes:
+      label: Agent Positions
+      description: Each agent's position with supporting evidence
+      placeholder: |
+        **Claude-Code Position:**
+        - pgvector: 50ms avg query time on 1M vectors
+        - Native PostgreSQL integration
+        - Lower operational complexity
+        
+        **GPT-4-Architect Position:**
+        - Weaviate: Consistent with existing vector operations
+        - Better horizontal scaling
+        - More advanced vector operations
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact-assessment
+    attributes:
+      label: Impact Assessment
+      description: What are the consequences of not resolving this conflict?
+      placeholder: |
+        - Development blocked on vector search implementation
+        - Potential for inconsistent database architecture
+        - Risk of technical debt if wrong choice is made
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency Level
+      description: How quickly does this need to be resolved?
+      options:
+        - IMMEDIATE (blocks critical work)
+        - HIGH (affects current sprint)
+        - NORMAL (can wait for next planning)
+        - LOW (future consideration)
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-resolution
+    attributes:
+      label: Proposed Resolution Method
+      description: How should this conflict be resolved?
+      placeholder: |
+        1. Benchmark both solutions with realistic data
+        2. Consult with human architect for strategic direction
+        3. Consider hybrid approach or phased migration
+        4. Document decision rationale for future reference
+
+  - type: textarea
+    id: escalation
+    attributes:
+      label: Escalation Path
+      description: If agents cannot resolve, who should make the final decision?
+      placeholder: |
+        - Technical escalation: Senior Architecture Agent
+        - Business escalation: Human Project Manager
+        - Security escalation: Security Review Team
